@@ -1,0 +1,153 @@
+# Quiz Application
+
+This project is a simple JavaScript-based quiz application that dynamically loads questions and evaluates user answers. Below are the details and structure of the application.
+
+## Features
+- Displays multiple-choice questions.
+- Tracks correct and incorrect answers.
+- Supports dynamic addition of questions.
+
+## Questions Object Structure
+The questions are stored in an object with the following structure:
+
+```javascript
+var questions = {
+    1: {
+        question: "What is the capital of France?",
+        answers: {
+            1: "Paris",
+            2: "London",
+            3: "Berlin",
+            4: "Madrid"
+        },
+        correct: "Paris"
+    },
+    2: {
+        question: "What is 2 + 2?",
+        answers: {
+            1: "3",
+            2: "4",
+            3: "5",
+            4: "6"
+        },
+        correct: "4"
+    }
+    // Additional questions follow the same format.
+};
+```
+
+## Topics Used in the Code
+
+### 1. **Objects**
+- Used to store questions, answers, and correct answers.
+- Example:
+```javascript
+var questions = {
+    1: {
+        question: "What is the capital of France?",
+        answers: {
+            1: "Paris",
+            2: "London",
+            3: "Berlin",
+            4: "Madrid"
+        },
+        correct: "Paris"
+    }
+};
+```
+
+### 2. **Event Handling**
+- Used to handle button clicks for submitting answers.
+- Example:
+```javascript
+function submit() {
+    var name = document.getElementById("name").value;
+    console.log(name);
+}
+```
+
+### 3. **DOM Manipulation**
+- Dynamically updates the question and options on the page.
+- Example:
+```javascript
+function loadQuestion(questionId) {
+    document.getElementById("question").innerText = questions[questionId].question;
+    document.getElementById("option1").innerText = questions[questionId].answers[1];
+    document.getElementById("option2").innerText = questions[questionId].answers[2];
+    document.getElementById("option3").innerText = questions[questionId].answers[3];
+    document.getElementById("option4").innerText = questions[questionId].answers[4];
+}
+```
+
+### 4. **Functions**
+- Encapsulate logic to improve code reusability.
+- Example:
+```javascript
+function checkAnswer(selectedAnswer, correctAnswer) {
+    if (selectedAnswer === correctAnswer) {
+        console.log("Correct!");
+    } else {
+        console.log("Incorrect!");
+    }
+}
+```
+
+### 5. **Conditionals**
+- Used to compare user answers with the correct answer.
+- Example:
+```javascript
+if (selectedAnswer === questions[questionId].correct) {
+    console.log("Correct answer!");
+} else {
+    console.log("Wrong answer!");
+}
+```
+
+### 6. **Loops (Future Enhancement)**
+- Can be used to iterate through questions automatically.
+- Example (planned):
+```javascript
+for (let i = 1; i <= Object.keys(questions).length; i++) {
+    loadQuestion(i);
+}
+```
+
+## How to Add More Questions
+1. Add a new key-value pair in the `questions` object.
+2. Follow the existing structure for the new question.
+3. Include the `question` string, `answers` object, and `correct` answer string.
+
+Example:
+```javascript
+3: {
+    question: "What is the largest ocean on Earth?",
+    answers: {
+        1: "Atlantic Ocean",
+        2: "Indian Ocean",
+        3: "Pacific Ocean",
+        4: "Arctic Ocean"
+    },
+    correct: "Pacific Ocean"
+}
+```
+
+## Steps to Use the Quiz Application
+1. Clone or download the repository containing the quiz application.
+2. Open the `index.html` file in your browser.
+3. Interact with the quiz by selecting an answer for each question.
+4. Submit your answers to see the results.
+
+## Technologies Used
+- HTML
+- CSS
+- JavaScript
+
+## Future Enhancements
+- Add a timer for each question.
+- Track user progress and display a progress bar.
+- Store user scores using local storage or a database.
+- Create a responsive design for mobile and desktop devices.
+
+## License
+This project is open-source and free to use under the MIT license.
+

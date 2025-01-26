@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Quiz Game</title>
+</head>
+<body>
+    <div id="main">
+        <div id="container">
+            <div>
+                <h1>Your name</h1>
+                <input type="text" id="name" placeholder="Enter your name">
+                <button id="btn" onclick="submit()">Submit</button>
+            </div>
+        </div>
+        <div id="container2">
+            <h1 id="name_p">Hi</h1>
+        </div>
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div id="correct-progress-bar" class="progress">0%</div>
+            </div>
+            <div class="progress-bar">
+                <div id="incorrect-progress-bar" class="progress">0%</div>
+            </div>
+        </div>
+        <div id="quetion_div">
+            <h3 id="question">Question</h3>
+            <div id="option1" class="option" onclick="select(option1.innerText)">a</div>
+            <div id="option2" class="option" onclick="select(option2.innerText)">b</div>
+            <div id="option3" class="option" onclick="select(option3.innerText)">c</div>
+            <div id="option4" class="option" onclick="select(option4.innerText)">d</div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
